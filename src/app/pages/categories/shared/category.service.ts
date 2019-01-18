@@ -14,6 +14,7 @@ export class CategoryService {
   private apiPath: string = "api/categories";
 
   constructor(private http: HttpClient) { }
+  
 
   getAll(): Observable<Category[]>{
       return this.http.get(this.apiPath).pipe(
@@ -50,7 +51,7 @@ export class CategoryService {
   delete(id: number): Observable<any> {
     const url = '${this.apiPath}/${id}';
     
-    return this.http.delete(url,).pipe(
+    return this.http.delete(url).pipe(
       catchError(this.handleError),
       map(() => null)
     )
